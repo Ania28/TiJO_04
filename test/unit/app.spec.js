@@ -35,4 +35,48 @@ describe('app', function () {
             expect(app.divide(101, 0)).toEqual(false);
         });
     });
+
+    describe('Descending Numbers function', function () {
+        it('should take only numbers', function () {
+            expect(app.getDescendingNumbers('xx', 2)).toEqual(false);
+            expect(app.getDescendingNumbers('a', 'a')).toEqual(false);
+            expect(app.getDescendingNumbers(2, 'z')).toEqual(false);
+        });
+        it('should return string', function () {
+            expect(app.getDescendingNumbers(7,2)).toEqual('7 6 5 4 3 2');
+            expect(app.getDescendingNumbers(10,50)).toEqual(false);
+        });
+    });
+
+    describe('Trapezoid function', function () {
+        it('should return false number loweer than 0', function () {
+            expect(app.areaOfTrapezoid(-12,4,5)).toEqual(false);
+            expect(app.areaOfTrapezoid(3,-5,1)).toEqual(false);
+        });
+        it('should return false', function () {
+            expect(app.areaOfTrapezoid('as',-2,-3)).toEqual(false);
+        });
+        it('should return areaOfTrapezoid', function () {
+            expect(app.areaOfTrapezoid(2,3,3)).toEqual(7.5);
+            expect(app.areaOfTrapezoid(1,2,7)).toEqual(10.5);
+        });
+    });
+
+    describe('maxArray function', function () {
+        it('should return false when element different than number', function () {
+            expect(app.maxArray([1,2,3,41,2,'as'])).toEqual(false);
+        });
+        it('should return max element', function () {
+            expect(app.maxArray([1,2,3,41,2])).toEqual(41);
+        });
+    });
+
+    describe('squareOdd function', function () {
+        it('should return false whenelements different than number or string', function () {
+            expect(app.squareOdd([1,2,10,2,'sad', true])).toEqual(false);
+        });
+        it('should return array', function () {
+            expect(app.squareOdd([2,3,4,7,8])).toEqual([2,9,4,49,8]);
+        });
+    });
 });

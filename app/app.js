@@ -23,6 +23,29 @@
                 return false;
             }
             return 0.5 * h * (a + b);
+        },
+        maxArray: function (arr) {
+            var biggest = arr[0];
+            for (var i = 0; i < arr.length; i++) {
+                if (typeof arr[i] !== 'number') {
+                    return false;
+                }
+                if (arr[i] > biggest) {
+                    biggest = arr[i];
+                }
+            }
+            return biggest;
+        },
+        squareOdd: function (arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (typeof arr[i] !== 'number' && typeof arr[i] !== 'string') {
+                    return false;
+                }
+                if (arr[i] % 2 == 1) {
+                    arr[i] *= arr[i];
+                }
+            }
+            return arr;
         }
     }
 })();
